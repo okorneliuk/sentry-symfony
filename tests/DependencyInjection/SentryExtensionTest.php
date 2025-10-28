@@ -307,7 +307,7 @@ abstract class SentryExtensionTest extends TestCase
         $container = $this->createContainerFromFixture('error_types');
         $optionsDefinition = $container->getDefinition('sentry.client.options');
 
-        $this->assertSame(\E_ALL & ~(\E_NOTICE | \E_STRICT | \E_DEPRECATED), $optionsDefinition->getArgument(0)['error_types']);
+        $this->assertSame(\E_ALL & ~(\E_NOTICE | \E_DEPRECATED), $optionsDefinition->getArgument(0)['error_types']);
     }
 
     public function testIgnoreErrorsIntegrationIsNotAddedTwiceIfAlreadyConfigured(): void
